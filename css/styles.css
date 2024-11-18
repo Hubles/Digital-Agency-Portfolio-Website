@@ -1,0 +1,501 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Sora";
+  src: url(../fonts/Sora-Regular.woff2) format(woff2);
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url(../fonts/Sora-Medium.woff2) format(woff2);
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url(../fonts/Sora-SemiBold.woff2) format(woff2);
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url(../fonts/Sora-Bold.woff2) format(woff2);
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Sora";
+  src: url(../fonts/Sora-ExtraBold.woff2) format(woff2);
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+/**
+  Нормализация блочной модели
+ */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+:where(address[class]) {
+  font-style: normal;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями и видео
+ */
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Убираем скачок интерфейса по горизонтали
+    при появлении / исчезновении скроллбара
+   */
+  scrollbar-gutter: stable;
+}
+
+/**
+  Плавный скролл
+ */
+html,
+:has(:target) {
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Нормализация высоты элемента ссылки при его инспектировании в DevTools
+ */
+a:where([class]) {
+  display: inline-flex;
+}
+
+/**
+  Курсор-рука при наведении на элемент
+ */
+button,
+label {
+  cursor: pointer;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+[fill] {
+  fill: currentColor;
+}
+
+[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/**
+  Приведение рамок таблиц в классический 'collapse' вид
+ */
+:where(table) {
+  border-collapse: collapse;
+  border-color: currentColor;
+}
+
+/**
+  Удаляем все анимации и переходы для людей,
+  которые предпочитают их не использовать
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+._container {
+  max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
+  margin-inline: auto;
+  padding-inline: var(--container-padding-x);
+}
+
+@media (width > 1600px) {
+  .visible-desktop {
+    display: none !important;
+  }
+}
+
+@media (width > 1280px) {
+  .visible-desktop-small {
+    display: none !important;
+  }
+}
+
+@media (width > 1024px) {
+  .visible-tablet {
+    display: none !important;
+  }
+}
+
+@media (width > 768px) {
+  .visible-mobile {
+    display: none !important;
+  }
+}
+
+@media (width > 425px) {
+  .visible-mobile-small {
+    display: none !important;
+  }
+}
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-white-shade-50: #808080;
+  --color-white-shade-55: #8C8C8C;
+  --color-white-shade-60: #999999;
+  --color-white-shade-65: #A6A6A6;
+  --color-white-shade-70: #B3B3B3;
+  --color-white-shade-75: #BFBFBF;
+  --color-white-shade-80: #CCCCCC;
+  --color-white-shade-90: #E6E6E6;
+  --color-grey-shade-06: #0F0F0F;
+  --color-grey-shade-10-alt: rgb(26, 26, 26, 68%);
+  --color-grey-shade-10: #1A1A1A;
+  --color-grey-shade-12: #1F1F1F;
+  --color-grey-shade-15: #262626;
+  --color-grey-shade-20: #333333;
+  --color-grey-shade-25: #404040;
+  --color-grey-shade-30: #4C4C4C;
+  --color-grey-shade-40: #666666;
+  --font-family-base: "Sora", sans-serif;
+  --container-width: 1600px;
+  --container-padding-x: 16px;
+  --section-padding-y: 75px;
+  --border-radius: 10000px;
+  --border: 1px solid var(--color-grey-shade-15);
+  --border-alt: 1px solid var(--color-grey-shade-12);
+  --border-gradient: 1px solid linear-gradient(var(--color-grey-shade-10), transparent);
+  --gradient-background: linear-gradient(var(--color-grey-shade-10), transparent);
+  --gradient-background-alt: linear-gradient(var(--color-grey-shade-10), var(--color-grey-shade-10-alt));
+  --transition-duration: .2s;
+  --transition: var(--transition-duration) linear;
+}
+@media (width <= 1600px) {
+  :root {
+    --container-width: 1280px;
+  }
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: var(--color-grey-shade-06);
+  transition-duration: var(--transition-duration);
+  color: var(--color-white);
+}
+
+a {
+  color: inherit;
+}
+a, a:hover {
+  text-decoration: none;
+}
+
+.header {
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  border-bottom: var(--border-alt);
+  padding-block: 24px;
+}
+@media (width <= 1600px) {
+  .header {
+    padding-block: 20px;
+  }
+}
+@media (width <= 425px) {
+  .header {
+    padding-block: 14px;
+  }
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (width <= 1600px) {
+  .header-logo img {
+    width: 55.79px;
+  }
+}
+@media (width <= 425px) {
+  .header-logo img {
+    width: 39.05px;
+  }
+}
+.header-burger {
+  width: 50px;
+  aspect-ratio: 1;
+  background-color: var(--color-grey-shade-10);
+  border: var(--border-alt);
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.header-burger span {
+  width: 21px;
+  height: 2px;
+  position: relative;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  display: inline-block;
+}
+.header-burger span:before, .header-burger span:after {
+  content: "";
+  background-color: currentColor;
+  height: 2px;
+  position: absolute;
+  border-radius: var(--border-radius);
+}
+.header-burger span:before {
+  top: -6px;
+  width: 100%;
+  left: 0;
+}
+.header-burger span:after {
+  bottom: -6px;
+  width: 50%;
+  right: 0;
+  transition: var(--transition);
+}
+@media (hover: hover) {
+  .header-burger:hover span:after {
+    width: 100%;
+  }
+}
+@media (hover: none) {
+  .header-burger:active span:after {
+    width: 100%;
+  }
+}
+
+.header-nav {
+  transition: var(--transition);
+}
+@media (width <= 768px) {
+  .header-nav {
+    position: absolute;
+    left: 0;
+    top: -100vh;
+    z-index: 100;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--color-grey-shade-10);
+  }
+}
+.header-nav-list {
+  display: flex;
+  -moz-column-gap: 8px;
+       column-gap: 8px;
+}
+@media (width <= 1600px) {
+  .header-nav-list {
+    -moz-column-gap: 6px;
+         column-gap: 6px;
+  }
+}
+.header-nav-list-item {
+  padding: 16px 24px;
+  font-size: 18px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+@media (width <= 1600px) {
+  .header-nav-list-item {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+}
+@media (width <= 768px) {
+  .header-nav-list-item {
+    padding-inline: 160px;
+  }
+}
+@media (hover: hover) {
+  .header-nav-list-item:not(.checked):hover {
+    background-color: var(--color-grey-shade-12);
+  }
+}
+@media (hover: hover) and (width <= 768px) {
+  .header-nav-list-item:not(.checked):hover {
+    background-color: var(--color-grey-shade-06);
+  }
+}
+@media (hover: none) {
+  .header-nav-list-item:not(.checked):active {
+    background-color: var(--color-grey-shade-12);
+  }
+}
+@media (hover: none) and (width <= 768px) {
+  .header-nav-list-item:not(.checked):active {
+    background-color: var(--color-grey-shade-06);
+  }
+}
+@media (width <= 768px) {
+  .header-nav-list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--color-grey-shade-12);
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.nav-krest {
+  position: absolute;
+  right: 52px;
+  top: 36px;
+  cursor: pointer;
+}
+.nav-krest:before, .nav-krest:after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 21px;
+  background-color: var(--color-white);
+}
+.nav-krest:before {
+  rotate: 45deg;
+}
+.nav-krest:after {
+  rotate: -45deg;
+}
+
+.checked {
+  border: var(--border-alt);
+  background-color: var(--color-grey-shade-10);
+}
+
+.active {
+  top: 0;
+}/*# sourceMappingURL=styles.css.map */

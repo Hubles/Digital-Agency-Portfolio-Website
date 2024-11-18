@@ -1,0 +1,13 @@
+body {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  background-color: var(--color-grey-shade-06);
+  transition-duration: var(--transition-duration);
+  color: var(--color-white);
+}
+
+a {
+  @include reset-link;
+}

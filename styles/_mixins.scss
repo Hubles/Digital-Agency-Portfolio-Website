@@ -1,0 +1,46 @@
+@mixin fluid-text($min: 14, $max: 48) {
+  $display-width: 1920;
+  @include desktop {
+    $display-width: 1440;
+  }
+
+  font-size: clamp(#{$min}px, #{$max / $display-width * 100}vw, #{$max});
+}
+
+@mixin reset-link {
+  color: inherit;
+
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin reset-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+@mixin flex-center($isInline: false) {
+  @if $isInline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
+
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin abs-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50%, -50%;
+}
+
+@mixin square($size) {
+  width: $size;
+  aspect-ratio: 1;
+}

@@ -1,0 +1,172 @@
+.header {
+  backdrop-filter: blur(12px);
+  border-bottom: var(--border-alt);
+  padding-block: 24px;
+
+  @include desktop {
+    padding-block: 20px;
+  } 
+
+  @include mobile-small {
+    padding-block: 14px;
+  }
+
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+
+  &-logo img {
+    @include desktop {
+      width: 55.79px;
+    }
+
+    @include mobile-small {
+      width: 39.05px;
+    }
+  }
+
+  &-burger {
+    @include square(50px);
+    background-color: var(--color-grey-shade-10);
+    border: var(--border-alt);
+    border-radius: var(--border-radius);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    span {
+      width: 21px;
+      height: 2px;
+      position: relative;
+      background-color: var(--color-white);
+      border-radius: var(--border-radius);
+      display: inline-block;
+
+      &:before,
+      &:after {
+        content: '';
+        background-color: currentColor;
+        height: 2px;
+        position: absolute;
+        border-radius: var(--border-radius);
+      }
+
+      &:before {
+        top: -6px;
+        width: 100%;
+        left: 0;
+      } 
+
+      &:after {
+        bottom: -6px;
+        width: 50%;
+        right: 0;
+        transition: var(--transition);
+      }
+    }
+
+    @include hover {
+      span:after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.header-nav {
+  transition: var(--transition);
+
+
+  @include mobile {
+    position: absolute;
+    left: 0;
+    top: -100vh;
+    z-index: 100;
+    height: 100vh;
+    width: 100%;
+    background-color: var(--color-grey-shade-10);
+  }
+
+  &-list {
+    display: flex;
+    column-gap: 8px;
+
+    @include desktop {
+      column-gap: 6px;
+    }
+
+    &-item {
+      padding: 16px 24px;
+      font-size: 18px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+
+      @include desktop {
+        font-size: 14px;
+        padding: 12px 16px;
+      }
+
+      @include mobile {
+        padding-inline: 160px;
+      }
+    }
+
+    &-item:not(.checked) {
+      @include hover {
+        background-color: var(--color-grey-shade-12);
+
+        @include mobile {
+          background-color: var(--color-grey-shade-06);
+        }
+      }
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      background-color: var(--color-grey-shade-12);
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+
+.nav-krest {
+  position: absolute;
+  right: 52px;
+  top: 36px;
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 21px;
+    background-color: var(--color-white);
+  }
+
+  &:before {
+    rotate: 45deg;
+  }
+
+  &:after {
+    rotate: -45deg;
+  }
+}
+
+.checked {
+  border: var(--border-alt);
+  background-color: var(--color-grey-shade-10);
+}
+
+.active {
+  top: 0;
+}

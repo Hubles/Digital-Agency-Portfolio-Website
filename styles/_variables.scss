@@ -1,0 +1,44 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-white-shade-50: #808080;
+  --color-white-shade-55: #8C8C8C;
+  --color-white-shade-60: #999999;
+  --color-white-shade-65: #A6A6A6;
+  --color-white-shade-70: #B3B3B3;
+  --color-white-shade-75: #BFBFBF;
+  --color-white-shade-80: #CCCCCC;
+  --color-white-shade-90: #E6E6E6;
+
+  --color-grey-shade-06: #0F0F0F;
+  --color-grey-shade-10-alt: rgb(26, 26, 26, 68%);
+  --color-grey-shade-10: #1A1A1A;
+  --color-grey-shade-12: #1F1F1F;
+  --color-grey-shade-15: #262626;
+  --color-grey-shade-20: #333333;
+  --color-grey-shade-25: #404040;
+  --color-grey-shade-30: #4C4C4C;
+  --color-grey-shade-40: #666666;
+
+  --font-family-base: 'Sora', sans-serif;
+
+  --container-width: 1600px;
+  --container-padding-x: 16px;
+  @include desktop {
+    --container-width: 1280px;
+  }
+
+  --section-padding-y: 75px;
+
+  --border-radius: 10000px;
+  --border: 1px solid var(--color-grey-shade-15);
+  --border-alt: 1px solid var(--color-grey-shade-12);
+  --border-gradient: 1px solid linear-gradient(var(--color-grey-shade-10), transparent);
+
+  --gradient-background: linear-gradient(var(--color-grey-shade-10), transparent);
+  --gradient-background-alt: linear-gradient(var(--color-grey-shade-10), var(--color-grey-shade-10-alt));
+
+  --transition-duration: .2s;
+  --transition: var(--transition-duration) linear; 
+}
