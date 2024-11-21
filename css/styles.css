@@ -501,6 +501,7 @@ a, a:hover {
     background-color: var(--color-grey-shade-12);
     height: 100%;
     width: 100%;
+    padding-block: 30px;
   }
 }
 
@@ -591,6 +592,7 @@ a, a:hover {
     align-items: center;
     padding-top: 73px;
     padding-bottom: 34px;
+    z-index: -1;
   }
 }
 @media (width <= 425px) {
@@ -669,6 +671,7 @@ a, a:hover {
   position: absolute;
   right: -110%;
   top: 0;
+  z-index: -1;
 }
 .hero-body-image img {
   width: 100%;

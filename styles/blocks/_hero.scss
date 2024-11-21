@@ -48,6 +48,7 @@
     align-items: center;
     padding-top: 73px;
     padding-bottom: 34px;
+    z-index: -1;
   }
 
   @include mobile-small {
@@ -123,6 +124,7 @@
     position: absolute;
     right: -110%;
     top: 0;
+    z-index: -1;
 
     img {
       width: 100%;
