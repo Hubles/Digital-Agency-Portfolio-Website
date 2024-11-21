@@ -2,10 +2,15 @@
   backdrop-filter: blur(12px);
   border-bottom: var(--border-alt);
   padding-block: 24px;
+  margin-bottom: calc(#{$header-bottom}px);
 
   @include desktop {
     padding-block: 20px;
   } 
+
+  @include mobile {
+    margin-bottom: 100px;
+  }
 
   @include mobile-small {
     padding-block: 14px;

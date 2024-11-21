@@ -3,11 +3,36 @@ body {
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
-  background-color: var(--color-grey-shade-06);
   transition-duration: var(--transition-duration);
   color: var(--color-white);
+
+  background: url(../images/hero-background.png) no-repeat;
+  background-size: 1440px;
+  background-position-x: -560px;
+  background-color: var(--color-grey-shade-06);
+
+  @include mobile {
+    background: none;
+    background-color: var(--color-grey-shade-06);
+  }
 }
 
 a {
   @include reset-link;
+}
+
+.button {
+  padding: 18px 24px;
+  border-radius: var(--border-radius);
+  border: var(--border);
+  color: var(--color-white);
+  background-color: transparent;
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+
+  @include desktop {
+    font-size: 14px;
+    padding: 14px 20px;
+  }
 }
