@@ -12,3 +12,9 @@ navBarKrest.addEventListener('click', () => {
   navBar.classList.remove('active')
   body.style.overflowY = ''
 })
+
+function summ(a, b) {
+  return a + b
+}
+
+console.log(summ(2, 4))

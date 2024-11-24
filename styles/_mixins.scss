@@ -1,7 +1,7 @@
 @mixin fluid-text($min: 14, $max: 48) {
   $display-width: 1920;
   @include desktop {
-    $display-width: 1440;
+    $display-width: 1600;
   }
 
   font-size: clamp(#{$min}px, #{$max / $display-width * 100}vw, #{$max}px);
