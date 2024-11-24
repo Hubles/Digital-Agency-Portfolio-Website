@@ -705,7 +705,7 @@ a, a:hover {
 }
 @media (width <= 1024px) {
   .hero-image {
-    padding-inline: 13vw;
+    padding-inline: 7vw;
   }
 }
 @media (width <= 768px) {
