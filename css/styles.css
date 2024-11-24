@@ -350,6 +350,8 @@ a, a:hover {
   border-bottom: var(--border-alt);
   padding-block: 24px;
   margin-bottom: calc(188px);
+  position: relative;
+  z-index: 100;
 }
 @media (width <= 1600px) {
   .header {
@@ -592,7 +594,6 @@ a, a:hover {
     align-items: center;
     padding-top: 73px;
     padding-bottom: 34px;
-    z-index: -1;
   }
 }
 @media (width <= 425px) {

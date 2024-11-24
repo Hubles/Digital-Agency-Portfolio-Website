@@ -3,6 +3,8 @@
   border-bottom: var(--border-alt);
   padding-block: 24px;
   margin-bottom: calc(#{$header-bottom}px);
+  position: relative;
+  z-index: 100;
 
   @include desktop {
     padding-block: 20px;
