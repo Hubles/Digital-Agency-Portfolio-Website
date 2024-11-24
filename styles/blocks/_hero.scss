@@ -138,11 +138,16 @@
   top: calc(#{$header-bottom}px);
   left: 50%;
   z-index: -1;
+  display: flex;
+  justify-content: center;
+  padding-inline: 9.3vw;
 
   @include desktop {
-    img {
-      width: 720px;
-    }
+    padding-inline: 5vw;
+  }
+
+  @include tablet {
+    padding-inline: 13vw;
   }
 
   @include mobile {
@@ -164,4 +169,16 @@
       display: none;
     }
   } 
+
+  &:after {
+    content: '';
+    max-width: 100%;
+    width: 960px;
+    height: 60%;
+    background-color: rgba(#0f0f0f, 20%);
+    backdrop-filter: blur(29px);
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+  }
 }

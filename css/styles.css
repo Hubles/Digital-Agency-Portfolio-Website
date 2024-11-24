@@ -685,10 +685,18 @@ a, a:hover {
   top: calc(188px);
   left: 50%;
   z-index: -1;
+  display: flex;
+  justify-content: center;
+  padding-inline: 9.3vw;
 }
 @media (width <= 1600px) {
-  .hero-image img {
-    width: 720px;
+  .hero-image {
+    padding-inline: 5vw;
+  }
+}
+@media (width <= 1024px) {
+  .hero-image {
+    padding-inline: 13vw;
   }
 }
 @media (width <= 768px) {
@@ -711,4 +719,16 @@ a, a:hover {
   .hero-image:before {
     display: none;
   }
+}
+.hero-image:after {
+  content: "";
+  max-width: 100%;
+  width: 960px;
+  height: 60%;
+  background-color: rgba(15, 15, 15, 0.2);
+  -webkit-backdrop-filter: blur(29px);
+          backdrop-filter: blur(29px);
+  position: absolute;
+  left: 0;
+  bottom: -1px;
 }/*# sourceMappingURL=styles.css.map */
