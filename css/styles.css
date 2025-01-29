@@ -995,6 +995,17 @@ a, a:hover {
 
 .services-section {
   text-align: center;
+  margin-bottom: 150px;
+}
+@media (width <= 1600px) {
+  .services-section {
+    margin-bottom: 120px;
+  }
+}
+@media (width <= 768px) {
+  .services-section {
+    margin-bottom: 80px;
+  }
 }
 
 .services-container {
@@ -1172,9 +1183,212 @@ a, a:hover {
   color: var(--color-white);
 }
 
+.works-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.works-text {
+  width: 100%;
+  padding-inline: 250px;
+}
+@media (width <= 1600px) {
+  .works-text {
+    padding-inline: 150px;
+  }
+}
+@media (width <= 768px) {
+  .works-text {
+    padding-inline: 0;
+  }
+}
+
+.works-blocks-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+@media (width <= 1600px) {
+  .works-blocks-list {
+    gap: 40px;
+  }
+}
+@media (width <= 768px) {
+  .works-blocks-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.works-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  text-align: left;
+  padding: 50px;
+  border-radius: 20px;
+  background: linear-gradient(to bottom, #1A1A1A, var(--color-grey-shade-06) 68%);
+}
+@media (width <= 1600px) {
+  .works-item {
+    padding: 40px;
+  }
+}
+@media (width <= 768px) {
+  .works-item {
+    padding: 24px;
+  }
+}
+.works-item:before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+  background: linear-gradient(to bottom, #1f1f1f 0%, rgba(255, 255, 255, 0) 68%);
+  border-radius: 20px;
+  z-index: -1;
+}
+.works-item-image {
+  width: 100%;
+  position: relative;
+  height: 411px;
+  border: var(--color-grey-shade-12) solid 1px;
+  border-radius: 20px;
+  margin-bottom: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../../images/hero-background.png) no-repeat;
+  background-size: 837px;
+  background-position-x: 50%;
+  background-color: transparent;
+}
+@media (width <= 1600px) {
+  .works-item-image {
+    height: 319px;
+  }
+  .works-item-image img {
+    width: 125px;
+  }
+}
+@media (width <= 425px) {
+  .works-item-image {
+    height: 200px;
+  }
+  .works-item-image img {
+    width: 83px;
+  }
+}
+.works-item-image-button {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+  display: flex;
+  gap: 10px;
+  padding: 18px 24px;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  transition: var(--transition);
+  z-index: 1;
+}
+@media (width <= 1600px) {
+  .works-item-image-button {
+    padding: 14px 20px;
+    font-size: 14px;
+    gap: 9px;
+    min-width: 218px;
+  }
+}
+@media (hover: hover) {
+  .works-item-image-button:hover {
+    background-color: var(--color-grey-shade-12);
+  }
+}
+@media (hover: none) {
+  .works-item-image-button:active {
+    background-color: var(--color-grey-shade-12);
+  }
+}
+.works-item-image-button img {
+  width: 15px;
+}
+@media (width <= 1600px) {
+  .works-item-image-button img {
+    width: 13px;
+  }
+}
+.works-item-image:before, .works-item-image:after {
+  width: 58px;
+  aspect-ratio: 1;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  clear: both;
+}
+.works-item-title {
+  font-size: 24px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+@media (width <= 1600px) {
+  .works-item-title {
+    margin-bottom: 20px;
+    font-size: clamp(18px, 1.25vw, 20px);
+  }
+}
+@media (width <= 768px) {
+  .works-item-title {
+    margin-bottom: 16px;
+  }
+}
+.works-item-subtitle {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 24px;
+}
+@media (width <= 1600px) {
+  .works-item-subtitle {
+    margin-bottom: 20px;
+  }
+}
+@media (width <= 768px) {
+  .works-item-subtitle {
+    margin-bottom: 16px;
+  }
+}
+@media (width <= 1024px) {
+  .works-item-subtitle {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+.works-item-subtitle span,
+.works-item-subtitle time {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+@media (width <= 1600px) {
+  .works-item-subtitle span,
+  .works-item-subtitle time {
+    font-size: clamp(14px, 1vw, 16px);
+  }
+}
 ::-webkit-scrollbar {
   background-color: transparent;
   width: 10px;
+  margin-right: 100px;
 }
 
 ::-webkit-scrollbar-thumb {

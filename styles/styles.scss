@@ -1,10 +1,11 @@
 @import './fonts', './media', './mixins', './normalize', './utils', './variables',  './globals';
 
-@import './blocks/header', './blocks/hero', './blocks/choose', './blocks/services';
+@import './blocks/header', './blocks/hero', './blocks/choose', './blocks/services', './blocks/works';
 
 ::-webkit-scrollbar {
   background-color: transparent;
   width: 10px;
+  margin-right: 100px;
 }
 
 ::-webkit-scrollbar-thumb {
