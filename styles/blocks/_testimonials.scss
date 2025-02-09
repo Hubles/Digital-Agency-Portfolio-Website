@@ -1,0 +1,202 @@
+.testimonials-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.testimonials-text {
+  width: 100%;
+  max-width: 1120px;
+  padding-inline: 16px;
+
+  @include desktop {
+    max-width: 976px;
+  }
+}
+
+.testimonials-blocks-list {
+  display: flex;
+  width: 100vw;
+  overflow: hidden;
+  justify-content: center;
+  position: relative;
+
+  &:before,
+  &:after {
+    position: absolute;
+    content: '';
+    width: 403px;
+    height: 100%;
+    top: 0;
+    background: linear-gradient(to right, var(--color-grey-shade-06), transparent);
+
+    @include desktop {
+      width: 279px;
+    }
+
+    z-index: 100;
+
+    @include mobile-small {
+      display: none;
+    }
+  }
+
+  &::after {
+    right: 0;
+    transform: rotate(180deg);
+  }
+
+  &::before {
+    left: 0;
+  }
+}
+
+.testimonials-block {
+  animation: ticker 20s linear infinite;
+  padding-inline: 15px;
+
+  @include mobile-small {
+    &:not(:nth-child(2)) {
+      display: none;
+    }
+  }
+
+  @include mobile-small {
+    animation: none;
+  }
+
+  &-massage {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 40px;
+    margin-bottom: 45px;
+    border: var(--border);
+    border-radius: 20px;
+    width: 510px;
+    height: 303px;
+    text-align: left;
+    background: linear-gradient(var(--color-grey-shade-10), var(--color-grey-shade-06) 30%);
+    position: relative;
+
+    @include desktop {
+      padding: 30px;
+      border-radius: 14px;
+      margin-bottom: 35px;
+      width: 420px;
+      height: 248px;
+    }
+
+    @include mobile-small {
+      text-align: center;
+      align-items: center;
+      width: 354px;
+      height: 255px;
+    }
+
+    &-button {
+      background: transparent;
+      border: 1px solid var(--color-grey-shade-15);
+      border-radius: 8px;
+      padding: 14px;
+      margin-bottom: 30px;
+
+      @include flex-center;
+
+
+      @include desktop {
+        padding: 10px;
+        border-radius: 6px;
+      }
+    }
+
+    &-subtitle {
+      margin-bottom: 0;
+
+      p {
+        color: var(--color-white);
+      }
+
+    }
+
+    &:after {
+      content: '';
+      background: url(../../icons/Tip.svg) no-repeat;
+      background-size: 38px;
+      background-position-y: 0;
+      background-position-x: center;
+      width: 66px;
+      height: 24px;
+      position: absolute;
+      left: 0;
+      top: 100%;
+
+      @include desktop {
+        width: 60px;
+        background-size: 32px;
+      }
+
+      @include mobile-small {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &-person {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    gap: 14px;
+
+    @include desktop {
+      gap: 10px;
+    }
+
+    @include mobile-small {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &-image {
+      width: 70px;
+      height: 70px;
+
+      img {
+        width: 100%;
+      }
+
+      @include desktop {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    &-info {
+      height: auto;
+
+      &-name {
+        font-weight: 400;
+
+        @include fluid-text(18, 20);
+      }
+
+      &-discription {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-400%);
+  }
+}

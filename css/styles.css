@@ -225,6 +225,10 @@ svg * {
     scroll-behavior: auto !important;
   }
 }
+body {
+  overflow-x: hidden;
+}
+
 ._container {
   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
   margin-inline: auto;
@@ -1383,6 +1387,198 @@ a, a:hover {
   .works-item-subtitle span,
   .works-item-subtitle time {
     font-size: clamp(14px, 1vw, 16px);
+  }
+}
+.testimonials-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.testimonials-text {
+  width: 100%;
+  max-width: 1120px;
+  padding-inline: 16px;
+}
+@media (width <= 1600px) {
+  .testimonials-text {
+    max-width: 976px;
+  }
+}
+
+.testimonials-blocks-list {
+  display: flex;
+  width: 100vw;
+  overflow: hidden;
+  justify-content: center;
+  position: relative;
+}
+.testimonials-blocks-list:before, .testimonials-blocks-list:after {
+  position: absolute;
+  content: "";
+  width: 403px;
+  height: 100%;
+  top: 0;
+  background: linear-gradient(to right, var(--color-grey-shade-06), transparent);
+  z-index: 100;
+}
+@media (width <= 1600px) {
+  .testimonials-blocks-list:before, .testimonials-blocks-list:after {
+    width: 279px;
+  }
+}
+@media (width <= 425px) {
+  .testimonials-blocks-list:before, .testimonials-blocks-list:after {
+    display: none;
+  }
+}
+.testimonials-blocks-list::after {
+  right: 0;
+  transform: rotate(180deg);
+}
+.testimonials-blocks-list::before {
+  left: 0;
+}
+
+.testimonials-block {
+  animation: ticker 20s linear infinite;
+  padding-inline: 15px;
+}
+@media (width <= 425px) {
+  .testimonials-block:not(:nth-child(2)) {
+    display: none;
+  }
+}
+@media (width <= 425px) {
+  .testimonials-block {
+    animation: none;
+  }
+}
+.testimonials-block-massage {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 40px;
+  margin-bottom: 45px;
+  border: var(--border);
+  border-radius: 20px;
+  width: 510px;
+  height: 303px;
+  text-align: left;
+  background: linear-gradient(var(--color-grey-shade-10), var(--color-grey-shade-06) 30%);
+  position: relative;
+}
+@media (width <= 1600px) {
+  .testimonials-block-massage {
+    padding: 30px;
+    border-radius: 14px;
+    margin-bottom: 35px;
+    width: 420px;
+    height: 248px;
+  }
+}
+@media (width <= 425px) {
+  .testimonials-block-massage {
+    text-align: center;
+    align-items: center;
+    width: 354px;
+    height: 255px;
+  }
+}
+.testimonials-block-massage-button {
+  background: transparent;
+  border: 1px solid var(--color-grey-shade-15);
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (width <= 1600px) {
+  .testimonials-block-massage-button {
+    padding: 10px;
+    border-radius: 6px;
+  }
+}
+.testimonials-block-massage-subtitle {
+  margin-bottom: 0;
+}
+.testimonials-block-massage-subtitle p {
+  color: var(--color-white);
+}
+.testimonials-block-massage:after {
+  content: "";
+  background: url(../../icons/Tip.svg) no-repeat;
+  background-size: 38px;
+  background-position-y: 0;
+  background-position-x: center;
+  width: 66px;
+  height: 24px;
+  position: absolute;
+  left: 0;
+  top: 100%;
+}
+@media (width <= 1600px) {
+  .testimonials-block-massage:after {
+    width: 60px;
+    background-size: 32px;
+  }
+}
+@media (width <= 425px) {
+  .testimonials-block-massage:after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+.testimonials-block-person {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  gap: 14px;
+}
+@media (width <= 1600px) {
+  .testimonials-block-person {
+    gap: 10px;
+  }
+}
+@media (width <= 425px) {
+  .testimonials-block-person {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+.testimonials-block-person-image {
+  width: 70px;
+  height: 70px;
+}
+.testimonials-block-person-image img {
+  width: 100%;
+}
+@media (width <= 1600px) {
+  .testimonials-block-person-image {
+    width: 50px;
+    height: 50px;
+  }
+}
+.testimonials-block-person-info {
+  height: auto;
+}
+.testimonials-block-person-info-name {
+  font-weight: 400;
+  font-size: clamp(18px, 1.25vw, 20px);
+}
+.testimonials-block-person-info-discription {
+  margin-bottom: 0;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-400%);
   }
 }
 ::-webkit-scrollbar {
