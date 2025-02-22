@@ -1,4 +1,6 @@
 body {
+  display: flex;
+  flex-direction: column;
   font-family: var(--font-family-base);
   font-weight: 400;
   font-size: 18px;
@@ -17,8 +19,13 @@ body {
   }
 }
 
+main {
+  flex-grow: 1;
+}
+
 a {
   @include reset-link;
+  cursor: pointer;
 }
 
 .button {
@@ -78,3 +85,15 @@ a {
     }
   }
 }
+
+.text {
+  color: var(--color-white-shade-50);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  @include desktop {
+    @include fluid-text(14, 16);
+  }
+}
+

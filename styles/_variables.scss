@@ -34,7 +34,7 @@
   --border-radius: 10000px;
   --border: 1px solid var(--color-grey-shade-15);
   --border-alt: 1px solid var(--color-grey-shade-12);
-  --border-gradient: 1px solid linear-gradient(var(--color-grey-shade-10), transparent);
+  --border-gradient: linear-gradient(to bottom, var(--color-grey-shade-15), transparent);
 
   --gradient-background: linear-gradient(var(--color-grey-shade-10), transparent);
   --gradient-background-alt: linear-gradient(var(--color-grey-shade-10), var(--color-grey-shade-10-alt));

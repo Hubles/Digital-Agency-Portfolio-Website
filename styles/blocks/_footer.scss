@@ -1,0 +1,231 @@
+footer {
+  margin-top: 150px;
+
+  @include desktop {
+    margin-top: 120px;
+  }
+
+  @include mobile-small {
+    margin-top: 80px;
+  }
+}
+
+.footer-start {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 30px;
+  border-bottom: var(--border-alt);
+  margin-bottom: 80px;
+
+  @include desktop {
+    margin-bottom: 60px;
+  }
+
+  @include mobile-small {
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+  }
+
+  &-logo img {
+    @include mobile-small {
+      width: 61.37px;
+    }
+  }
+
+  &-media {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @include mobile {
+      gap: 10px;
+      flex-direction: column;
+    }
+
+    &-title {
+      color: var(--color-white);
+    }
+
+    &-socials {
+      display: flex;
+    }
+
+    &-social {
+      padding: 20px;
+      background: linear-gradient(to bottom, var(--color-grey-shade-10),var(--color-grey-shade-06)) padding-box, var(--border-gradient) border-box;
+      border: 1px solid transparent;
+      border-radius: 50%;
+      transition: var(--transition);
+
+
+      @include hover {
+        background: linear-gradient(to bottom, var(--color-grey-shade-10),var(--color-grey-shade-10)) padding-box, var(--color-grey-shade-15) border-box;
+      }
+      
+      img {
+        max-width: 24px;
+
+        @include mobile {
+          max-width: 20px;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-right: 14px;
+
+        @include mobile-small {
+          margin-right: 10px;
+        }
+      }
+
+      @include mobile {
+        padding: 18px;
+      }
+    }
+  }
+}
+
+.footer-menu {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 80px;
+  border-bottom: var(--border-alt);
+
+  @include desktop {
+    padding-bottom: 60px;
+  }
+
+  @include mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 40px;
+  }
+
+  @include mobile-small {
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 24px;
+  }
+
+  &-main-link {
+    font-weight: 500;
+    color: var(--color-white);
+    margin-bottom: 24px;
+  }
+
+  &-link {
+    @include underLine-onLink;
+  }
+}
+
+.footer-extra {
+  &-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    padding-block: 30px;
+
+    @include desktop {
+      padding-block: 24px;
+    }
+
+    @include mobile-small {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      text-align: center;
+    }
+
+    &-texts {
+      @include tablet-above {
+        display: contents;
+      }
+
+      @include tablet {
+        display: flex;
+        column-gap: 16px;
+      }
+
+      @include mobile {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      @include mobile-small {
+        display: contents;
+      }
+    }
+
+    &-text {
+      p {
+        color: var(--color-grey-shade-40);
+      }
+
+      &:not(:first-child) {
+        @include abs-center;
+        top: auto;
+        transform: translate(-50%, 0);
+
+        @include tablet {
+          position: static;
+          transform: none;
+        }
+      }
+
+      margin-bottom: 0;
+
+      &:first-child {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+    }
+
+
+  }
+
+  &-list {
+    display: flex;
+    column-gap: 20px;
+
+    @include tablet {
+      column-gap: 16px;
+    }
+
+    @include mobile {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include mobile-small {
+      display: contents;
+    }
+  }
+
+  &-item {
+
+    &:first-child {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+
+    &:nth-child(2) {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 2;
+      grid-row-end: 3;
+    }
+
+  }
+
+  &-link {
+    color: var(--color-grey-shade-40);
+
+    @include underLine-onLink;
+  }
+}

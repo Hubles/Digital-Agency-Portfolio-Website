@@ -24,6 +24,12 @@ $mobile-small: 425px;
   }
 }
 
+@mixin tablet-above {
+  @media (width > $tablet) {
+    @content
+  }
+}
+
 @mixin mobile {
   @media (width <= $mobile) {
     @content
